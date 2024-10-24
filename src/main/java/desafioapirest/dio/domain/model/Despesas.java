@@ -1,4 +1,4 @@
-package desafioapirest.dio.model;
+package desafioapirest.dio.domain.model;
 
 import java.math.BigDecimal;
 

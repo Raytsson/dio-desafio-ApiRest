@@ -1,4 +1,4 @@
-package desafioapirest.dio.model;
+package desafioapirest.dio.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
