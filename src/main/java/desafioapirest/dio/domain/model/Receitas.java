@@ -13,6 +13,9 @@ public class Receitas extends Transacoes{
         TotaReceita = totaReceita;
     }
 
+    public Receitas() {
+    }
+
     public String getNomeReceita() {
         return nomeReceita;
     }

@@ -13,6 +13,9 @@ public class Despesas extends Transacoes {
         TotalDespesa = totalDespesa;
     }
 
+    public Despesas() {
+    }
+
     public String getNomeDespesa() {
         return nomeDespesa;
     }
