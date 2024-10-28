@@ -14,21 +14,19 @@ public class Usuario {
     private String email;
     private String senha;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Usuario> usuarios;
+    @OneToMany(mappedBy = "usuario") // Certifique-se de que "usuario" refere-se à propriedade na entidade Transacoes ou Despesas
+    private List<Transacoes> transacoes; // Aqui você pode usar Transacoes ou Despesas, dependendo da relação
 
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String email, String senha, List<Usuario> usuarios) {
+    public Usuario(Long id, String nome, String email, String senha, List<Transacoes> transacoes) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.usuarios = usuarios;
+        this.transacoes = transacoes;
     }
-
-
 
     public Long getId() {
         return id;
@@ -62,11 +60,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    public List<Transacoes> getTransacoes() { // Altere para corresponder ao novo tipo
+        return transacoes;
     }
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    public void setTransacoes(List<Transacoes> transacoes) {
+        this.transacoes = transacoes;
     }
 }

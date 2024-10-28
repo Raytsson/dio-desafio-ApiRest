@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity(name = "tb_transacoes")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo_transacao", discriminatorType = DiscriminatorType.STRING)
 public class Transacoes {
 
     @Id

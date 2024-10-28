@@ -1,7 +1,11 @@
 package desafioapirest.dio.domain.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
+@Entity
+@DiscriminatorValue("DESPESA")
 public class Despesas extends Transacoes {
 
     private String nomeDespesa;
