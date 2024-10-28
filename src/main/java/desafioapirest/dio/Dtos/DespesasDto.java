@@ -5,7 +5,7 @@ import desafioapirest.dio.domain.model.Despesas;
 import java.math.BigDecimal;
 
 
-public record DespesasDto(Long id, String descricao, BigDecimal valor, String nomeDespesa, Double totalDespesa) {
+public record DespesasDto(Long id, String descricao, BigDecimal valor, String nomeDespesa) {
 
     // Método estático para converter Entidade para DTO
     public static DespesasDto fromEntity(Despesas despesas) {
@@ -13,8 +13,7 @@ public record DespesasDto(Long id, String descricao, BigDecimal valor, String no
                 despesas.getId(),
                 despesas.getDescricao(),
                 despesas.getValor(),
-                despesas.getNomeDespesa(),
-                despesas.getTotalDespesa()
+                despesas.getNomeDespesa()
         );
     }
 
@@ -24,10 +23,9 @@ public record DespesasDto(Long id, String descricao, BigDecimal valor, String no
                 this.id,
                 this.descricao,
                 this.valor,
-                null,  // Categoria - depende de como você a gerencia
-                null,  // Usuário - depende de como você o gerencia
-                this.nomeDespesa,
-                this.totalDespesa
+                null,
+                null,
+                this.nomeDespesa
         );
     }
 }

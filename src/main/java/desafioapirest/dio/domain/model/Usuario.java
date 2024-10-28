@@ -14,8 +14,8 @@ public class Usuario {
     private String email;
     private String senha;
 
-    @OneToMany(mappedBy = "usuario") // Certifique-se de que "usuario" refere-se à propriedade na entidade Transacoes ou Despesas
-    private List<Transacoes> transacoes; // Aqui você pode usar Transacoes ou Despesas, dependendo da relação
+    @OneToMany(mappedBy = "usuario")
+    private List<Transacoes> transacoes;
 
     public Usuario() {
     }

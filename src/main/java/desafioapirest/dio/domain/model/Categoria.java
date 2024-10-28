@@ -1,11 +1,7 @@
 package desafioapirest.dio.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 
 @Entity(name = "tb_categoria")
 public class Categoria {
@@ -13,13 +9,14 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String nome;
-    private BigDecimal limiteOrcamento;
+    private Double limiteOrcamento;
 
     public Categoria() {
     }
 
-    public Categoria(Long id, String nome, BigDecimal limiteOrcamento) {
+    public Categoria(Long id, String nome,Double limiteOrcamento) {
         this.id = id;
         this.nome = nome;
         this.limiteOrcamento = limiteOrcamento;
@@ -41,11 +38,11 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public BigDecimal getLimiteOrcamento() {
+    public Double getLimiteOrcamento() {
         return limiteOrcamento;
     }
 
-    public void setLimiteOrcamento(BigDecimal limiteOrcamento) {
+    public void setLimiteOrcamento(Double limiteOrcamento) {
         this.limiteOrcamento = limiteOrcamento;
     }
 }

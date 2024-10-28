@@ -13,11 +13,9 @@ public class Transacoes {
     private Long id;
     private String descricao;
     private BigDecimal valor;
-
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;

@@ -55,8 +55,7 @@ public class DespesasController {
                 despesas.getId(),
                 despesas.getDescricao(),
                 despesas.getValor(),
-                despesas.getNomeDespesa(),
-                despesas.getTotalDespesa()
+                despesas.getNomeDespesa()
         );
     }
 
@@ -68,8 +67,7 @@ public class DespesasController {
                 dto.valor(),
                 null,  // Categoria - pode ser ajustada conforme necessário
                 null,  // Usuário - pode ser ajustado conforme necessário
-                dto.nomeDespesa(),
-                dto.totalDespesa()
+                dto.nomeDespesa()
         );
     }
 }

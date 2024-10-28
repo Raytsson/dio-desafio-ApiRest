@@ -9,12 +9,10 @@ import java.math.BigDecimal;
 public class Despesas extends Transacoes {
 
     private String nomeDespesa;
-    private Double TotalDespesa;
 
-    public Despesas(Long id, String descricao, BigDecimal valor, Categoria categoria, Usuario usuario, String nomeDespesa, Double totalDespesa) {
+    public Despesas(Long id, String descricao, BigDecimal valor, Categoria categoria, Usuario usuario, String nomeDespesa) {
         super(id, descricao, valor, categoria, usuario);
         this.nomeDespesa = nomeDespesa;
-        TotalDespesa = totalDespesa;
     }
 
     public Despesas() {
@@ -26,13 +24,5 @@ public class Despesas extends Transacoes {
 
     public void setNomeDespesa(String nomeDespesa) {
         this.nomeDespesa = nomeDespesa;
-    }
-
-    public Double getTotalDespesa() {
-        return TotalDespesa;
-    }
-
-    public void setTotalDespesa(Double totalDespesa) {
-        TotalDespesa = totalDespesa;
     }
 }
