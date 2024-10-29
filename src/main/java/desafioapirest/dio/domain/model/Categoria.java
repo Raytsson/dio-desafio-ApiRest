@@ -1,6 +1,7 @@
 package desafioapirest.dio.domain.model;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 
 @Entity(name = "tb_categoria")
@@ -10,7 +11,9 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
+    @NotNull
     private String nome;
+    @NotNull
     private Double limiteOrcamento;
 
     public Categoria() {
