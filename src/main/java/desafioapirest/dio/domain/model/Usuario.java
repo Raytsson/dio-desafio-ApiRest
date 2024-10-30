@@ -2,8 +2,6 @@ package desafioapirest.dio.domain.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity(name = "tb_usuario")
 public class Usuario {
 
@@ -14,18 +12,15 @@ public class Usuario {
     private String email;
     private String senha;
 
-    @OneToMany(mappedBy = "usuario")
-    private List<Transacoes> transacoes;
 
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String email, String senha, List<Transacoes> transacoes) {
+    public Usuario(Long id, String nome, String email, String senha) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.transacoes = transacoes;
     }
 
     public Long getId() {
@@ -60,11 +55,4 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public List<Transacoes> getTransacoes() { // Altere para corresponder ao novo tipo
-        return transacoes;
-    }
-
-    public void setTransacoes(List<Transacoes> transacoes) {
-        this.transacoes = transacoes;
-    }
 }

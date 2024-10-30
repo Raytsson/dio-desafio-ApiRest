@@ -1,8 +1,6 @@
 package desafioapirest.dio.service.exceptions;
 
-import desafioapirest.dio.service.exceptions.BusinesErrors.DuplicateNameException;
-import desafioapirest.dio.service.exceptions.BusinesErrors.LimiteOrcamentoNotFoundException;
-import desafioapirest.dio.service.exceptions.BusinesErrors.ResourceNotFoundException;
+import desafioapirest.dio.service.exceptions.BusinesErrors.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +22,14 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
     }
 
-    @ExceptionHandler(LimiteOrcamentoNotFoundException.class)
-    public ResponseEntity<ResponseError> handleLimiteOrcamentoNotFoundException(LimiteOrcamentoNotFoundException ex, HttpServletRequest request) {
+    @ExceptionHandler(NegativeValueException.class)
+    public ResponseEntity<ResponseError> handleNegativeValueException(NegativeValueException ex, HttpServletRequest request) {
+        ResponseError error = new ResponseError("Bad Request", HttpStatus.BAD_REQUEST.value(), ex.getMessage(),request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    @ExceptionHandler(InvalidTransactionDateException.class)
+    public ResponseEntity<ResponseError> handleInvalidTransactionDateException(InvalidTransactionDateException ex, HttpServletRequest request) {
         ResponseError error = new ResponseError("Bad Request", HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }

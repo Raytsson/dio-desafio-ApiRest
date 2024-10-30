@@ -2,6 +2,7 @@ package desafioapirest.dio.domain.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity(name = "tb_transacoes")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -13,6 +14,7 @@ public class Transacoes {
     private Long id;
     private String descricao;
     private BigDecimal valor;
+    private LocalDate dataTransacao;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
@@ -20,17 +22,16 @@ public class Transacoes {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    public Transacoes() {
-    }
-
-    public Transacoes(Long id, String descricao, BigDecimal valor, Categoria categoria, Usuario usuario) {
+    public Transacoes(Long id, String descricao, BigDecimal valor, LocalDate dataTransacao, Categoria categoria) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
+        this.dataTransacao = dataTransacao;
         this.categoria = categoria;
-        this.usuario = usuario;
     }
 
+    public Transacoes() {
+    }
 
 
     public Long getId() {
@@ -71,5 +72,13 @@ public class Transacoes {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public LocalDate getDataTransacao() {
+        return dataTransacao;
+    }
+
+    public void setDataTransacao(LocalDate dataTransacao) {
+        this.dataTransacao = dataTransacao;
     }
 }

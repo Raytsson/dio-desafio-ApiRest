@@ -3,6 +3,7 @@ package desafioapirest.dio.domain.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 @DiscriminatorValue("DESPESA")
@@ -10,8 +11,8 @@ public class Despesas extends Transacoes {
 
     private String nomeDespesa;
 
-    public Despesas(Long id, String descricao, BigDecimal valor, Categoria categoria, Usuario usuario, String nomeDespesa) {
-        super(id, descricao, valor, categoria, usuario);
+    public Despesas(Long id, String descricao, BigDecimal valor, LocalDate dataTransacao, Categoria categoria, String nomeDespesa) {
+        super(id, descricao, valor, dataTransacao, categoria);
         this.nomeDespesa = nomeDespesa;
     }
 

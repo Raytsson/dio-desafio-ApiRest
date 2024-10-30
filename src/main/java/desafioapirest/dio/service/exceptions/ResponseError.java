@@ -7,14 +7,14 @@ public class ResponseError {
     private String status;
     private int statusCode;
     private String error;
-    private String path; // Adicione este campo se quiser incluir a URI
+    private String path;
 
     public ResponseError(String status, int statusCode, String error, String path) {
         this.timeStamp = new Date();
         this.status = status;
         this.statusCode = statusCode;
         this.error = error;
-        this.path = path; // Inicializa a URI
+        this.path = path;
     }
 
     public Date getTimeStamp() {
@@ -34,6 +34,6 @@ public class ResponseError {
     }
 
     public String getPath() {
-        return path; // Adicione este getter
+        return path;
     }
 }

@@ -1,21 +1,23 @@
 package desafioapirest.dio.Dtos;
 
+import desafioapirest.dio.domain.model.Categoria;
+import desafioapirest.dio.domain.model.Despesas;
 import desafioapirest.dio.domain.model.Receitas;
+import desafioapirest.dio.domain.model.Usuario;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
-public record ReceitasDto(Long id, String descricao, BigDecimal valor, String nomeReceita) {
+public record ReceitasDto(Long id, String descricao, BigDecimal valor, String nomeDespesa, Long categoriaId, String dataTransacao) {
 
-    public ReceitasDto(Receitas receitas) {
-        this(receitas.getId(), receitas.getDescricao(), receitas.getValor(), receitas.getNomeReceita());
-    }
-
-    public Receitas toModel() {        Receitas receitas = new Receitas();
-
-        receitas.setId(this.id);
-        receitas.setDescricao(this.descricao);
-        receitas.setValor(this.valor);
-        receitas.setNomeReceita(this.nomeReceita);
-        return receitas;
+    public Receitas toModel(Categoria categoria, Usuario usuario) {
+        return new Receitas(
+                this.id,
+                this.descricao,
+                this.valor,
+                LocalDate.parse(this.dataTransacao),
+                categoria,
+                this.nomeDespesa
+        );
     }
 }

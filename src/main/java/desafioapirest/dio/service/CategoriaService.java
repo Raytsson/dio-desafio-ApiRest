@@ -27,11 +27,9 @@ public class CategoriaService {
     }
 
     public Categoria save(Categoria categoria) {
-        // Verifica se já existe uma categoria com o mesmo nome
         if (categoriaRepository.findByNome(categoria.getNome()).isPresent()) {
             throw new DuplicateNameException("Já existe uma categoria com o nome: " + categoria.getNome());
         }
-        // Verifica se o limite de orçamento não é nulo
         if (categoria.getLimiteOrcamento() == null) {
             throw new LimiteOrcamentoNotFoundException("O limite de orçamento não pode ser nulo.");
         }
@@ -39,16 +37,13 @@ public class CategoriaService {
     }
 
     public Categoria update(Long id, Categoria categoria) {
-        // Busca a categoria existente
         Categoria existingCategoria = findById(id);
 
-        // Verifica se já existe uma categoria com o mesmo nome, ignorando a categoria atual
         if (categoriaRepository.findByNome(categoria.getNome()).isPresent() &&
                 !existingCategoria.getNome().equals(categoria.getNome())) {
             throw new DuplicateNameException("Já existe uma categoria com o nome: " + categoria.getNome());
         }
 
-        // Atualiza os campos da categoria existente
         existingCategoria.setNome(categoria.getNome());
         existingCategoria.setLimiteOrcamento(categoria.getLimiteOrcamento());
 
@@ -56,8 +51,7 @@ public class CategoriaService {
     }
 
     public void delete(Long id) {
-        // Verifica se a categoria existe antes de tentar deletá-la
-        findById(id); // Lança ResourceNotFoundException se não encontrar
+        findById(id);
         categoriaRepository.deleteById(id);
     }
 }
