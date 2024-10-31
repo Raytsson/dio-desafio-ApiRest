@@ -1,5 +1,6 @@
 package desafioapirest.dio.domain.model;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,10 +14,13 @@ public class Transacoes {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
+    @NotNull
     private BigDecimal valor;
+    @NotNull
     private LocalDate dataTransacao;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
+    @NotNull
     private Categoria categoria;
 
     public Transacoes(Long id, String descricao, BigDecimal valor, LocalDate dataTransacao, Categoria categoria) {

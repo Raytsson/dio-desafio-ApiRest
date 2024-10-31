@@ -34,10 +34,10 @@ public class RelatorioService {
     }
 
     private List<Receitas> buscarReceitasPorMes(int ano, int mes) {
-        return receitasService.findByAnoAndMes(ano, mes);  // Chamada correta
+        return receitasService.findByAnoAndMes(ano, mes);
     }
 
     private List<Despesas> buscarDespesasPorMes(int ano, int mes) {
-        return despesasService.findByAnoAndMes(ano, mes);  // Chamada correta
+        return despesasService.findByAnoAndMes(ano, mes);
     }
 }

@@ -5,6 +5,7 @@ import desafioapirest.dio.domain.model.Categoria;
 import desafioapirest.dio.domain.model.Despesas;
 import desafioapirest.dio.service.CategoriaService;
 import desafioapirest.dio.service.DespesasService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class DespesasController {
     }
 
     @PostMapping
-    public ResponseEntity<DespesasDto> createDespesa(@RequestBody DespesasDto dto) {
+    public ResponseEntity<DespesasDto> createDespesa(@Valid @RequestBody DespesasDto dto) {
         Despesas despesas = fromDTO(dto);
         Despesas savedDespesa = despesasService.save(despesas);
         return ResponseEntity.status(HttpStatus.CREATED).body(toDTO(savedDespesa));

@@ -5,6 +5,7 @@ import desafioapirest.dio.domain.model.Categoria;
 import desafioapirest.dio.domain.model.Receitas;
 import desafioapirest.dio.service.CategoriaService;
 import desafioapirest.dio.service.ReceitasService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class ReceitasController {
     }
 
     @PostMapping
-    public ResponseEntity<ReceitasDto> createReceita(@RequestBody ReceitasDto dto) {
+    public ResponseEntity<ReceitasDto> createReceita(@Valid @RequestBody ReceitasDto dto) {
         Receitas receitas = fromDTO(dto);
         Receitas savedReceita = receitasService.save(receitas);
         return ResponseEntity.status(HttpStatus.CREATED).body(toDTO(savedReceita));

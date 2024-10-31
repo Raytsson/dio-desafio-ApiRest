@@ -46,12 +46,6 @@ public class CategoriaController {
         return ResponseEntity.ok(toDTO(categoriaService.update(id, categoria)));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCategoria(@PathVariable Long id) {
-        categoriaService.delete(id);
-        return ResponseEntity.noContent().build();
-    }
-
     private CategoriaDto toDTO(Categoria categoria) {
         return new CategoriaDto(
                 categoria.getId(),

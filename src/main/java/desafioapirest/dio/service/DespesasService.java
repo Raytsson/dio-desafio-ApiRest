@@ -35,8 +35,8 @@ public class DespesasService {
     }
 
     public Despesas update(Long id, Despesas despesas) {
-        findById(id); // verifica se a despesa existe
-        validateDespesa(despesas); // valida as regras de negócio
+        findById(id);
+        validateDespesa(despesas);
         despesas.setId(id);
         return despesasRepository.save(despesas);
     }
@@ -50,12 +50,10 @@ public class DespesasService {
         return despesasRepository.findByAnoAndMes(ano, mes);
     }
 
-    // Validações
     private void validateDespesa(Despesas despesas) {
         if (despesas.getValor().compareTo(BigDecimal.ZERO) <= 0) {
             throw new InvalidValueException("O valor da despesa não pode ser zero ou negativo.");
         }
-
         if (despesas.getCategoria() == null) {
             throw new InvalidValueException("A despesa deve ter uma categoria.");
         }

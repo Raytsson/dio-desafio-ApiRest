@@ -1,6 +1,7 @@
 package desafioapirest.dio.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 @DiscriminatorValue("DESPESA")
 public class Despesas extends Transacoes {
 
+    @NotNull
     private String nomeDespesa;
 
     public Despesas(Long id, String descricao, BigDecimal valor, LocalDate dataTransacao, Categoria categoria, String nomeDespesa) {

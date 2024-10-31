@@ -31,8 +31,8 @@ public class ReceitasService {
     }
 
     public Receitas update(Long id, Receitas receitas) {
-        findById(id); // verifica se a receita existe
-        validateReceita(receitas); // valida as regras de negócio
+        findById(id);
+        validateReceita(receitas);
         receitas.setId(id);
         return receitasRepository.save(receitas);
     }
@@ -50,7 +50,6 @@ public class ReceitasService {
         return receitasRepository.findByAnoAndMes(ano, mes);
     }
 
-    // Validações
     private void validateReceita(Receitas receitas) {
         if (receitas.getValor().compareTo(BigDecimal.ZERO) <= 0) {
             throw new InvalidValueException("O valor da receita não pode ser zero ou negativo.");
@@ -60,7 +59,6 @@ public class ReceitasService {
             throw new InvalidValueException("A data da transação não pode ser nula.");
         }
 
-        // Caso a categoria seja obrigatória para receitas no futuro
         if (receitas.getCategoria() == null) {
             throw new InvalidValueException("A receita deve ter uma categoria.");
         }
