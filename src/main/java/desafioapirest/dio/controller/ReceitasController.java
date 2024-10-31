@@ -78,7 +78,7 @@ public class ReceitasController {
                 dto.valor(),
                 dto.dataTransacao() != null ? LocalDate.parse(dto.dataTransacao()) : null,
                 categoria,
-                dto.nomeDespesa()
+                dto.nomeReceitas()
         );
     }
 }

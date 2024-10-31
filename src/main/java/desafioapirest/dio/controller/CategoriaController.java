@@ -1,6 +1,5 @@
 package desafioapirest.dio.controller;
 
-
 import desafioapirest.dio.Dtos.CategoriaDto;
 import desafioapirest.dio.domain.model.Categoria;
 import desafioapirest.dio.service.CategoriaService;

@@ -22,6 +22,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
     }
 
+    @ExceptionHandler(LimiteOrcamentoNotFoundException.class)
+    public ResponseEntity<ResponseError> handleLimiteOrcamentoNotFoundException(LimiteOrcamentoNotFoundException ex, HttpServletRequest request) {
+        ResponseError error = new ResponseError("Conflict", HttpStatus.CONFLICT.value(), ex.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
+    }
+
     @ExceptionHandler(NegativeValueException.class)
     public ResponseEntity<ResponseError> handleNegativeValueException(NegativeValueException ex, HttpServletRequest request) {
         ResponseError error = new ResponseError("Bad Request", HttpStatus.BAD_REQUEST.value(), ex.getMessage(),request.getRequestURI());
@@ -33,4 +39,11 @@ public class GlobalExceptionHandler {
         ResponseError error = new ResponseError("Bad Request", HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
+
+    @ExceptionHandler(InvalidValueException.class)
+    public ResponseEntity<ResponseError> handleInvalidValueException(InvalidValueException ex, HttpServletRequest request) {
+        ResponseError error = new ResponseError("Bad Request", HttpStatus.BAD_REQUEST.value(), ex.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
 }

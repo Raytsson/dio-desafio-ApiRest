@@ -1,14 +1,13 @@
 package desafioapirest.dio.Dtos;
 
 import desafioapirest.dio.domain.model.Categoria;
-import desafioapirest.dio.domain.model.Despesas;
 import desafioapirest.dio.domain.model.Receitas;
 import desafioapirest.dio.domain.model.Usuario;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public record ReceitasDto(Long id, String descricao, BigDecimal valor, String nomeDespesa, Long categoriaId, String dataTransacao) {
+public record ReceitasDto(Long id, String descricao, BigDecimal valor, String nomeReceitas, Long categoriaId,String dataTransacao) {
 
     public Receitas toModel(Categoria categoria, Usuario usuario) {
         return new Receitas(
@@ -17,7 +16,7 @@ public record ReceitasDto(Long id, String descricao, BigDecimal valor, String no
                 this.valor,
                 LocalDate.parse(this.dataTransacao),
                 categoria,
-                this.nomeDespesa
+                this.nomeReceitas
         );
     }
 }

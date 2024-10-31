@@ -3,7 +3,6 @@ package desafioapirest.dio.domain.model;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
-
 @Entity(name = "tb_categoria")
 public class Categoria {
 

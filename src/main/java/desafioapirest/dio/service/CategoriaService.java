@@ -1,6 +1,5 @@
 package desafioapirest.dio.service;
 
-
 import desafioapirest.dio.domain.model.Categoria;
 import desafioapirest.dio.domain.repository.CategoriaRepository;
 import desafioapirest.dio.service.exceptions.BusinesErrors.DuplicateNameException;

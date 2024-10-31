@@ -18,9 +18,6 @@ public class Transacoes {
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
 
     public Transacoes(Long id, String descricao, BigDecimal valor, LocalDate dataTransacao, Categoria categoria) {
         this.id = id;
@@ -30,9 +27,15 @@ public class Transacoes {
         this.categoria = categoria;
     }
 
-    public Transacoes() {
+    public Transacoes(Long id, String descricao, BigDecimal valor, LocalDate dataTransacao) {
+        this.id = id;
+        this.descricao = descricao;
+        this.valor = valor;
+        this.dataTransacao = dataTransacao;
     }
 
+    public Transacoes() {
+    }
 
     public Long getId() {
         return id;
@@ -64,14 +67,6 @@ public class Transacoes {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public LocalDate getDataTransacao() {
