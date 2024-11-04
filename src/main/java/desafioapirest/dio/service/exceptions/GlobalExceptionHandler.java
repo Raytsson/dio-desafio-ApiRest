@@ -72,6 +72,7 @@ public class GlobalExceptionHandler {
         ResponseError error = new ResponseError("Bad Request", HttpStatus.BAD_REQUEST.value(), errorMessage, null);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
+
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex) {
         String erros = ex.getConstraintViolations().stream()
@@ -80,5 +81,4 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseError("Validation failed", HttpStatus.BAD_REQUEST.value(), erros, null));
     }
-
 }
